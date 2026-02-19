@@ -147,8 +147,7 @@ h1, h2 {
 
 /* Imagen del logo */
 .logo img {
-    height: 10px;       /* ajusta aquí el tamaño real */
+    height: 60px;       /* ajusta aquí el tamaño real */
     width: auto;
     display: block;
-
 }
