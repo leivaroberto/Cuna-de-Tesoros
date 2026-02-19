@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cuna de Tesoros | Jardín Maternal en Neuquén</title>
+<meta name="description" content="Cuna de Tesoros - Jardín Maternal en Neuquén. Especialistas en bebés desde 45 días hasta 3 años. Seguridad, amor y aprendizaje.">
+<meta name="keywords" content="jardín maternal Neuquén, guardería Neuquén, educación inicial, sala maternal">
+<meta name="author" content="Cuna de Tesoros">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<!-- CSS personalizado -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="images/logo.png" alt="Cuna de Tesoros Jardín Maternal Neuquén">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="#propuesta">Propuesta</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#equipo">Sumate</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section id="inicio" class="hero">
+  <div class="container text-center">
+
+    <h1 class="display-4 fw-bold">
+      Jardín Maternal Cuna de Tesoros
+    </h1>
+
+    <p class="lead mt-3">
+      Especialistas en bebés desde 45 días hasta 3 años.<br>
+      Un espacio seguro, cálido y profesional donde acompañamos cada etapa del desarrollo infantil.
+    </p>
+
+    <p class="fw-semibold">
+      Atención personalizada • Sala maternal • Colonia de verano
+    </p>
+
+    <a href="#contacto" class="btn btn-pink mt-4">
+      Solicitar información
+    </a>
+
+  </div>
+</section>
+
+<!-- ================= NOSOTROS ================= -->
+<section id="nosotros" class="py-5">
+  <div class="container text-center">
+    <h2 class="mb-4">Sobre Nosotros</h2>
+    <p>
+      Brindamos un entorno seguro y estimulante para el desarrollo integral infantil,
+      acompañando a cada familia con compromiso, amor y profesionalismo.
+    </p>
+  </div>
+</section>
+
+<!-- ================= PROPUESTA ================= -->
+<section id="propuesta" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="mb-4">Nuestra Propuesta Educativa</h2>
+
+    <p>
+      🌱 <strong>Misión:</strong><br>
+      Brindar un espacio seguro, afectivo y estimulante donde cada niño y niña pueda desarrollarse integralmente —en lo físico, emocional, cognitivo y espiritual— acompañado por un equipo profesional comprometido.
+    </p>
+
+    <p>
+      ✨ <strong>Visión:</strong><br>
+      Ser un jardín maternal referente por la calidad pedagógica, la contención afectiva y la formación en valores.
+    </p>
+
+    <p><strong>Horario:</strong> Lunes a Viernes de 7:30 a 17:00 horas.</p>
+  </div>
+</section>
+
+<!-- ================= UBICACIÓN ================= -->
+<section id="ubicacion" class="py-5">
+  <div class="container-fluid text-center">
+
+    <h2 class="mb-3">Ubicación</h2>
+
+    <p class="mb-4">
+      <i class="bi bi-geo-alt-fill"></i>
+      Jujuy 615, Neuquén Capital, Argentina
+    </p>
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps?q=Jujuy+615,+Neuqu%C3%A9n,+Argentina&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div class="mt-4">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Jujuy+615,+Neuqu%C3%A9n,+Argentina"
+         target="_blank"
+         rel="noopener"
+         class="btn btn-organic">
+         Cómo llegar
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section id="contacto" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Contacto</h2>
+
+    <form action="enviar_contacto.php" method="POST" class="row g-3">
+      <div class="col-md-6">
+        <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+      </div>
+
+      <div class="col-md-6">
+        <input type="email" name="email" class="form-control" placeholder="Email" required>
+      </div>
+
+      <div class="col-12">
+        <textarea name="mensaje" class="form-control" rows="4" placeholder="Mensaje" required></textarea>
+      </div>
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-pink">Enviar</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= SUMATE ================= -->
+<section id="equipo" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Sumate al Equipo</h2>
+
+    <form action="enviar_cv.php" method="POST" enctype="multipart/form-data" class="row g-3">
+      <div class="col-md-6">
+        <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+      </div>
+
+      <div class="col-md-6">
+        <input type="email" name="email" class="form-control" placeholder="Email" required>
+      </div>
+
+      <div class="col-12">
+        <input type="file" name="cv" class="form-control" accept=".pdf,.doc,.docx" required>
+      </div>
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-pink">Enviar CV</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="text-center p-3 bg-dark text-white">
+  © 2026 Cuna de Tesoros - Neuquén
+</footer>
+
+<!-- ================= BOTONES FLOTANTES ================= -->
+<a href="https://wa.me/5492994649110?text=Hola,%20quisiera%20recibir%20información"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener">
+   <i class="bi bi-whatsapp"></i>
+</a>
+
+<a href="https://instagram.com/cunadetesoros"
+   class="instagram-float"
+   target="_blank"
+   rel="noopener">
+   <i class="bi bi-instagram"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
