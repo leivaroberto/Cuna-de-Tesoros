@@ -21,7 +21,7 @@ h1, h2 {
         rgba(0, 0, 0, 0.45),
         rgba(0, 0, 0, 0.45)
     ),
-    url('images/hero.jpg') center center / cover no-repeat;
+    url('./images/hero.jpg') center center / cover no-repeat;
 
     min-height: 100vh;
     padding-top: 80px;
@@ -152,3 +152,4 @@ h1, h2 {
     display: block;
 
 }
+
