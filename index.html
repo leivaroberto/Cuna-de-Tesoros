@@ -140,24 +140,55 @@
 <!-- ================= CONTACTO ================= -->
 <section id="contacto" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4">Contacto <br> Envianos un e-mail o solicita una entrevista por WhatsApp</h2>
+    <h2 class="text-center mb-4">
+      Contacto <br>
+      Envíanos un e-mail o solicita una entrevista por WhatsApp
+    </h2>
 
-    <form action="enviar_contacto.html" method="POST" class="row g-3">
+    <form action="https://formspree.io/f/xvzbbddb"
+          method="POST"
+          class="row g-3">
+
       <div class="col-md-6">
-        <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+        <input type="text"
+               name="nombre"
+               class="form-control"
+               placeholder="Nombre"
+               required>
       </div>
 
       <div class="col-md-6">
-        <input type="email" name="email" class="form-control" placeholder="Email" required>
+        <input type="email"
+               name="email"
+               class="form-control"
+               placeholder="Email"
+               required>
       </div>
 
       <div class="col-12">
-        <textarea name="mensaje" class="form-control" rows="4" placeholder="Mensaje" required></textarea>
+        <textarea name="mensaje"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Mensaje"
+                  required></textarea>
       </div>
 
       <div class="col-12 text-center">
-        <button type="submit" class="btn btn-pink">Enviar</button>
+        <button type="submit" class="btn btn-pink">
+          Enviar
+        </button>
       </div>
+
+      <!-- Opcional: asunto del correo -->
+      <input type="hidden"
+             name="_subject"
+             value="Nuevo mensaje desde Cuna de Tesoros">
+
+      <!-- Opcional: redirección -->
+      <input type="hidden"
+             name="_redirect"
+             value="https://leivaroberto.github.io/Cuna-de-Tesoros/gracias.html">
+
     </form>
   </div>
 </section>
@@ -167,30 +198,54 @@
   <div class="container">
     <h2 class="text-center mb-4">Sumate al Equipo</h2>
 
-    <form action="enviar_cv.php" method="POST" enctype="multipart/form-data" class="row g-3">
+    <form action="https://formspree.io/f/xvzbbddb"
+          method="POST"
+          enctype="multipart/form-data"
+          class="row g-3">
+
       <div class="col-md-6">
-        <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+        <input type="text"
+               name="nombre"
+               class="form-control"
+               placeholder="Nombre"
+               required>
       </div>
 
       <div class="col-md-6">
-        <input type="email" name="email" class="form-control" placeholder="Email" required>
+        <input type="email"
+               name="email"
+               class="form-control"
+               placeholder="Email"
+               required>
       </div>
 
       <div class="col-12">
-        <input type="file" name="cv" class="form-control" accept=".pdf,.doc,.docx" required>
+        <input type="file"
+               name="cv"
+               class="form-control"
+               accept=".pdf,.doc,.docx"
+               required>
       </div>
 
       <div class="col-12 text-center">
-        <button type="submit" class="btn btn-pink">Enviar CV</button>
+        <button type="submit" class="btn btn-pink">
+          Enviar CV
+        </button>
       </div>
+
+      <!-- Redirección opcional -->
+      <input type="hidden"
+             name="_redirect"
+             value="https://leivaroberto.github.io/Cuna-de-Tesoros/gracias.html">
+
     </form>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer class="text-center p-3 bg-dark text-white">
-  Institución educativa habilitada por el Consejo Provincial de Educación de la Provincia del Neuquén - Registro N° R-XXX CPE.<br>
-  © 2026 Cuna de Tesoros - Neuquén. Todos los derechos reservados.
+    Institución educativa habilitada por el Consejo Provincial de Educación de la Provincia del Neuquén - Registro N° R-XXX CPE.<br>
+    © 2026 Cuna de Tesoros - Neuquén. Todos los derechos reservados.
 </footer>
 
 <!-- ================= BOTONES FLOTANTES ================= -->
@@ -213,8 +268,3 @@
 
 </body>
 </html>
-
-
-
-
-
