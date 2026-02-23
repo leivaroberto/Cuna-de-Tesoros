@@ -152,5 +152,60 @@ h1, h2 {
     display: block;
 
 }
+}
+.navbar-nav .nav-link {
+    transition: transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    transform: scale(1.05);
+}
+.navbar-nav .nav-link {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    transform: scale(1.1);
+    color: #e83e8c; /* rosa acorde a tu botón */
+}
+.logo-navbar {
+    height: 50px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.logo-navbar:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+.titulo-seccion {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.titulo-seccion:hover {
+  transform: translateY(-2px);
+}
+
+.subtitulo-seccion {
+  font-size: 0.95rem;
+  color: #6c757d;
+  font-weight: 400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* video */
+<style>
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 
 
