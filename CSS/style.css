@@ -111,6 +111,7 @@ h1, h2 {
 .whatsapp-float {
     bottom: 20px;
     background-color: #25D366;
+    animation: pulseWhatsapp 2.5s infinite;
 }
 
 .instagram-float {
@@ -127,6 +128,11 @@ h1, h2 {
 }
 
 @keyframes pulseInstagram {
+    0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+@keyframes pulseWhatsapp {
     0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
     70% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
     100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
@@ -150,8 +156,6 @@ h1, h2 {
     height: 60px;       /* ajusta aquí el tamaño real */
     width: auto;
     display: block;
-
-}
 }
 .navbar-nav .nav-link {
     transition: transform 0.2s ease;
@@ -195,17 +199,155 @@ h1, h2 {
   margin-right: auto;
 }
 /* video */
-<style>
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+.carousel-3d {
+  position: relative;
+  perspective: 1200px;
+  width: 80%;
+  max-width: 850px;
+  margin: 60px auto; 
+  margin: auto;
+  overflow: hidden;
 }
 
-.fade-in-section.visible {
+.carousel-track {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(.25,.8,.25,1);
+  transform-style: preserve-3d;
+}
+
+.slide {
+  min-width: 80%;
+  padding: 0 15px;
+  transition: all 0.8s ease;
+  transform: scale(0.8);
+  opacity: 0.5;
+  filter: blur(2px);
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3; /* mantiene proporción */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Imagen central activa */
+.slide.active {
+  transform: scale(1) translateZ(100px);
   opacity: 1;
-  transform: translateY(0);
+  filter: blur(0);
+  z-index: 2;
 }
-</style>
 
+/* Flechas */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  transition: 0.3s;
+}
 
+.nav:hover {
+  background: #c79b6b; /* puedes ajustar a tu color institucional */
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Botones */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+  z-index: 5;
+}
+
+.carousel-btn:hover {
+  background: #A3B18A;
+  color: white;
+}
+
+.carousel-btn.prev {
+  left: 15px;
+}
+
+.carousel-btn.next {
+  right: 15px;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+=================================*/
+
+/* Ajustes generales para pantallas pequeñas */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 60px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .btn-pink, .btn-organic {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .navbar-brand img {
+    max-height: 70px;
+  }
+
+  .carousel-3d {
+    width: 90%;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+}
+
+/* Ajustes para pantallas medianas */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .carousel-3d {
+    width: 75%;
+  }
+}
+
+/* Fondo de nubes para el navbar */
+.navbar {
+    background: url('../images/clouds-background.png') center center / cover no-repeat;
+    background-color: #ffffff; /* Fallback color */
+}
