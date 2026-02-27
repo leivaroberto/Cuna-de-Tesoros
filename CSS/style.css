@@ -138,6 +138,11 @@ h1, h2 {
     100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
 }
 
+/* Asegurar que los íconos flotantes sean visibles en pantallas pequeñas */
+.whatsapp-float, .instagram-float {
+    display: flex !important; /* Forzar visibilidad */
+}
+
 /* ===============================
    NAVBAR
 =================================*/
@@ -202,7 +207,7 @@ h1, h2 {
 .carousel-3d {
   position: relative;
   perspective: 1200px;
-  width: 80%;
+  width: 70%;
   max-width: 850px;
   margin: 60px auto; 
   margin: auto;
@@ -329,6 +334,16 @@ h1, h2 {
   .map-container iframe {
     height: 300px;
   }
+
+  /* Sección diferenciales */
+  .card-beneficio img {
+    height: 80px;
+  }
+
+  .texto-beneficio {
+    font-size: 14px;
+    padding: 15px;
+  }
 }
 
 /* Ajustes para pantallas medianas */
@@ -350,4 +365,118 @@ h1, h2 {
 .navbar {
     background: url('../images/clouds-background.png') center center / cover no-repeat;
     background-color: #ffffff; /* Fallback color */
+}
+
+/* ===============================
+   DESTACADOS
+=================================*/
+.destacados .col-md-3 {
+  position: relative;
+  text-align: center;
+}
+
+.destacados .col-md-3 img {
+  width: 100%;
+  max-width: 150px;
+}
+
+.destacados .col-md-3 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #4A4A4A; /* Color oscuro para el texto */
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* ===============================
+   DESTACADOS
+=================================*/
+.card-beneficio {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-beneficio img {
+  width: 100%;
+  height: 220px;
+  opacity: 75%;
+  object-fit: cover;
+  filter: brightness(1);
+  transition: transform 0.4s ease;
+}
+
+.texto-beneficio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;        /* centra vertical */
+  justify-content: center;    /* centra horizontal */
+  text-align: center;
+  padding: 20px;
+  color: #1a1919;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.card-beneficio:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card-beneficio:hover img {
+  transform: scale(1.05);
+}
+
+/* Ajuste para evitar que las imágenes se corten en las tarjetas de beneficios */
+.card-beneficio img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse */
+}
+
+/* Ajuste para que la imagen de fondo de .hero cubra completamente el contenedor */
+.hero {
+    background-size: cover; /* Asegura que la imagen cubra todo el área */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+/* Estilos para la animación de papelitos */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+    animation: flyConfetti 3s ease-out forwards;
+}
+
+@keyframes flyConfetti {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
 }
