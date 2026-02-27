@@ -56,17 +56,22 @@
 <section id="inicio" class="hero">
   <div class="container text-center">
 
-        <p class="lead mt-3">
-      Especialistas en bebés desde 45 días hasta 3 años.<br>
+    <!--<h1 class="display-4 fw-bold">-->
+      <!--Jardín Maternal Cuna de Tesoros-->
+    <!--</h1>-->
+
+    <p class="lead mt-3">
+      
       Un espacio seguro, cálido y profesional donde acompañamos cada etapa del desarrollo infantil.
     </p>
 
     <p class="fw-semibold">
-      Atención personalizada • Sala maternal • Colonia de verano
+      Proyecto educativo formal aprobado por el Ministerio de Educación.<br>
+      Niños desde 45 días hasta 3 años.
     </p>
 
     <a href="#contacto" class="btn btn-pink mt-4">
-      Solicitar información
+      Vení a conocernos
     </a>
 
   </div>
@@ -74,12 +79,61 @@
 
 <!-- ================= NOSOTROS ================= -->
 <section id="nosotros" class="py-5">
+
   <div class="container text-center">
     <h2 class="mb-4">Sobre Nosotros</h2>
     <p>
       Brindamos un entorno seguro y estimulante para el desarrollo integral infantil,
       acompañando a cada familia con compromiso, amor y profesionalismo.
     </p>
+    </p>
+    <h3 class="mb-4">Tu tranquilidad es nuestra prioridad</h3>
+    </p>
+  <div>
+<!-- ================= DESTACADOS ================= -->
+<section id="destacados" class="py-5">
+  <div class="container">
+    <div class="row justify-content-center g-4">
+
+      <div class="col-md-3 col-6">
+        <div class="card-beneficio">
+          <img src="images/dia1.png" alt="Proyecto aprobado">
+          <div class="texto-beneficio">
+            Proyecto educativo aprobado oficialmente
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="card-beneficio">
+          <img src="images/dia2.png" alt="Personal capacitado">
+          <div class="texto-beneficio">
+            Personal capacitado <br>
+            y comprometido
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="card-beneficio">
+          <img src="images/dia3.png" alt="Grupos reducidos">
+          <div class="texto-beneficio">
+            Grupos reducidos
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="card-beneficio">
+          <img src="images/dia4.png" alt="Comunicación diaria">
+          <div class="texto-beneficio">
+            Comunicación diaria <br>
+            con los padres
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -104,6 +158,12 @@
       <source src="video/cunadetesoros.mp4" type="video/mp4">
       Tu navegador no soporta video HTML5.
     </video>
+
+    <div class="text-center mt-4">
+      <a href="https://www.dunamisaudiovisual.com/" target="_blank" rel="noopener" class="btn btn-outline-primary">
+        Visita Dunamis Productora Audiovisual
+      </a>
+    </div>
 
   </div>
 </section>
@@ -146,8 +206,33 @@
   </div>
 </section>
 
+<!-- ================= ENFOQUE PEDAGÓGICO ================= -->
+<section id="enfoque-pedagogico" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="text-center mb-4">Enfoque Pedagógico</h2>
+
+    <p>      <strong>Marco pedagógico</strong><br>
+     Nos inspiramos en las teorías de Piaget, Vygotsky y Montessori, adaptando sus principios a las necesidades de cada niño y niña.
+        
+      <p>         <strong>Trabajamos por proyectos</strong><br>
+       Cada proyecto surge de los intereses de los niños, promoviendo la curiosidad y el aprendizaje significativo.
+      Estimulación temprana
+      Juego como eje central
+      </p>
+
+    <p>      <strong>Desarrollo por Edades</strong><br>
+      45 días a 1 año:</strong> estimulación sensorial y vínculo <br>
+      1 a 2 años:</strong> autonomía inicial <br>
+      2 a 3 años:</strong> socialización y lenguaje 
+      <br><br>
+     Adaptamos nuestras actividades a cada etapa, respetando los ritmos individuales y promoviendo el
+     desarrollo integral de cada niño y niña.
+    </p>
+  </div>
+</section>
+
 <!-- ================= UBICACIÓN ================= -->
-<section id="ubicacion" class="py-5 bg-light">
+<section id="ubicacion" class="py-5">
   <div class="container-fluid text-center">
 
     <h2 class="mb-3">Ubicación</h2>
@@ -179,7 +264,7 @@
 </section>
 
 <!-- ================= CONTACTO ================= -->
-<section id="contacto" class="py-5">
+<section id="contacto" class="py-5 bg-light">
   <div class="container">
 
     <h2 class="text-center titulo-seccion mb-2">
@@ -243,7 +328,7 @@
 </section>
 
 <!-- ================= SUMATE ================= -->
-<section id="equipo" class="py-5 bg-light">
+<section id="equipo" class="py-5">
   <div class="container">
     <h2 class="text-center mb-4">Sumate al Equipo</h2>
 
@@ -369,7 +454,28 @@ updateCarousel();
   });
 </script>
 
+<!-- Contenedor para la animación de papelitos -->
+<div id="confetti-container"></div>
+
+<!-- Script para la animación de papelitos -->
+<script>
+  function createConfetti() {
+    const container = document.getElementById('confetti-container');
+    const colors = ['#FFC107', '#FF5722', '#4CAF50', '#2196F3', '#9C27B0'];
+
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.animationDelay = Math.random() * 2 + 's';
+      container.appendChild(confetti);
+    }
+  }
+
+  createConfetti();
+</script>
+
 
 </body>
 </html>
-
