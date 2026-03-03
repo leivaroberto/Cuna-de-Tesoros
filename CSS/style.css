@@ -229,7 +229,7 @@ h1, h2 {
 }
 
 .slide {
-  min-width: 80%;
+  min-width: 100%;
   padding: 0 15px;
   transition: all 0.8s ease;
   transform: scale(0.8);
@@ -585,4 +585,5 @@ p {
   0% { opacity: 0.4; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.05); }
   100% { opacity: 0.4; transform: scale(1); }
+
 }
