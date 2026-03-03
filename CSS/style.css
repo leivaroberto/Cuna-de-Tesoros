@@ -1,10 +1,26 @@
 /* ===============================
+   VARIABLES DE COLOR
+=================================*/
+:root {
+    --color-fondo: #F4EFE6;
+    --color-texto:#2F5D56;/*#6B705C;/* #4A4A4A;*/
+    --color-boton-organico: #A3B18A;
+    --color-boton-organico-hover: #6B705C;
+    --color-boton-rosado: #C97B63;
+    --color-boton-rosado-hover: #a85f49;
+    --color-whatsapp: #25D366;
+    --color-instagram-gradiente: radial-gradient(circle at 30% 107%,
+        #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    --color-carrusel-flecha: #c79b6b;
+}
+
+/* ===============================
    BASE
 =================================*/
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F4EFE6;
-    color: #4A4A4A;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
     margin: 0;
 }
 
@@ -46,7 +62,7 @@ h1, h2 {
    BOTONES
 =================================*/
 .btn-organic {
-    background-color: #A3B18A;
+    background-color: var(--color-boton-organico);
     color: white;
     border-radius: 40px;
     padding: 14px 30px;
@@ -54,11 +70,11 @@ h1, h2 {
 }
 
 .btn-organic:hover {
-    background-color: #6B705C;
+    background-color: var(--color-boton-organico-hover);
 }
 
 .btn-pink {
-    background-color: #C97B63;
+    background-color: var(--color-boton-rosado);
     color: white;
     border-radius: 30px;
     padding: 12px 28px;
@@ -66,7 +82,7 @@ h1, h2 {
 }
 
 .btn-pink:hover {
-    background-color: #a85f49;
+    background-color: var(--color-boton-rosado-hover);
 }
 
 /* ===============================
@@ -110,14 +126,13 @@ h1, h2 {
 
 .whatsapp-float {
     bottom: 20px;
-    background-color: #25D366;
+    background-color: var(--color-whatsapp);
     animation: pulseWhatsapp 2.5s infinite;
 }
 
 .instagram-float {
     bottom: 90px;
-    background: radial-gradient(circle at 30% 107%,
-        #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: var(--color-instagram-gradiente);
     animation: pulseInstagram 2.5s infinite;
 }
 
@@ -163,18 +178,11 @@ h1, h2 {
     display: block;
 }
 .navbar-nav .nav-link {
-    transition: transform 0.2s ease;
-}
-
-.navbar-nav .nav-link:hover {
-    transform: scale(1.05);
-}
-.navbar-nav .nav-link {
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     color: #e83e8c; /* rosa acorde a tu botón */
 }
 .logo-navbar {
@@ -263,7 +271,7 @@ h1, h2 {
 }
 
 .nav:hover {
-  background: #c79b6b; /* puedes ajustar a tu color institucional */
+  background: var(--color-carrusel-flecha); /* puedes ajustar a tu color institucional */
 }
 
 .prev { left: 10px; }
@@ -479,4 +487,102 @@ h1, h2 {
         transform: translateY(100vh) rotate(720deg);
         opacity: 0;
     }
+}
+/* estilos para puntos relevantes*/
+.confianza-cdt {
+  padding: 90px 20px;
+  background: linear-gradient(to bottom, #F6EFE6, #ffffff);
+  text-align: center;
+}
+
+.titulo-seccion {
+  font-size: 34px;
+  margin-bottom: 70px;
+  color: #2F5D56;
+  font-weight: 600;
+}
+
+.grid-confianza {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.item {
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+}
+
+.imagen-circular {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: flotar 5s ease-in-out infinite;
+  box-shadow: 0 12px 30px rgba(93, 184, 163, 0.25);
+  border: 4px solid #ffffff;
+}
+
+.imagen-circular::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid #5DB8A3;
+  animation: glow 3s ease-in-out infinite;
+}
+
+.imagen-circular img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.icono {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #5DB8A3;
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+h3 {
+  font-size: 19px;
+  margin-bottom: 12px;
+  color: #2F5D56;
+}
+
+p {
+  font-size: 15px;
+  color: #5F5F5F;
+  max-width: 260px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+  0% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.4; transform: scale(1); }
 }
