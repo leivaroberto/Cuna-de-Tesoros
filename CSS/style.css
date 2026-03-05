@@ -205,7 +205,7 @@ h1, h2 {
 }
 
 .subtitulo-seccion {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #6c757d;
   font-weight: 400;
   max-width: 600px;
@@ -324,7 +324,7 @@ h1, h2 {
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .btn-pink, .btn-organic {
@@ -351,7 +351,7 @@ h1, h2 {
   }
 
   .texto-beneficio {
-    font-size: 14px;
+    font-size: 16px;
     padding: 15px;
   }
 }
@@ -363,7 +363,7 @@ h1, h2 {
   }
 
   .hero p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .carousel-3d {
@@ -407,6 +407,7 @@ h1, h2 {
 =================================*/
 .card-beneficio {
   position: relative;
+  align-content: center;
   overflow: hidden;
   border-radius: 20px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -570,7 +571,7 @@ h3 {
 }
 
 p {
-  font-size: 15px;
+  font-size: 16px;
   color: #5F5F5F;
   max-width: 260px;
   margin: auto;
@@ -639,7 +640,7 @@ p {
 
 .marco-flotante p {
   color: #5F5F5F;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   max-width: 100%;
 }
@@ -649,7 +650,7 @@ p {
   list-style: none;
   padding: 0;
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 16px;
   color: #5F5F5F;
 }
 
