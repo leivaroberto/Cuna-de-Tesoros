@@ -11,7 +11,6 @@
 
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
@@ -73,6 +72,7 @@
     </p>
 
     <a href="#contacto" class="btn btn-pink mt-4">
+      Inscripciones abiertas ciclo 2026 <br>
       Vení a conocernos
     </a>
 
@@ -176,6 +176,14 @@
         </div>
         <h3>Grupos Reducidos</h3>
         <p>Atención personalizada que respeta tiempos y procesos individuales.</p>
+      </div>
+ <div class="item">
+        <div class="imagen-circular">
+          <img src="images/reducido.jpg" alt="Ambiente familiar y seguro">
+          <div class="icono">❤️</div>
+        </div>
+        <h3>Ambiente familiar y seguro</h3>
+        <p>Cuidamos y acompañamos a cada niño en un entorno acogedor y protegido.</p>
       </div>
 
       <div class="item">
@@ -461,6 +469,44 @@
   </div>
 </section>
 
+<!-- ================= RESERVA ================= -->
+<!-- Script para manejar la reserva -->
+<section class="reserva py-5 bg-light">
+<div class="container">
+
+<h2 class="titulo-seccion text-center mb-4">
+Reservar entrevista
+</h2>
+
+<div class="form-reserva">
+
+<input type="date" id="fecha" class="form-control mb-3" min="">
+
+<select id="hora" class="form-control mb-3">
+<option value="">Seleccionar horario</option>
+<option value="10:00">10:00</option>
+<option value="10:30">10:30</option>
+<option value="11:00">11:00</option>
+<option value="15:00">15:00</option>
+<option value="15:30">15:30</option>
+<option value="16:00">16:00</option>
+</select>
+
+<input type="text" id="nombre" placeholder="Nombre" class="form-control mb-3">
+
+<input type="tel" id="telefono" placeholder="Teléfono" class="form-control mb-3">
+
+<input type="email" id="email" placeholder="Email" class="form-control mb-3">
+
+<button id="btnReservar" onclick="reservar()" class="btn btn-pink mt-4 d-block mx-auto">
+Reservar entrevista
+</button>
+
+<p id="mensaje" class="mt-3"></p>
+
+</div>
+</div>
+</section>
 <!-- ================= FOOTER ================= -->
 <footer class="text-center p-3 bg-dark text-white">
     Institución educativa habilitada por el Consejo Provincial de Educación de la Provincia del Neuquén.<br> Registro N° R-243 CPE.<br>
@@ -561,6 +607,214 @@ updateCarousel();
   createConfetti();
 </script>
 
+
+
+
+<!-- Script para manejar la reserva -->
+<script>
+
+function formatDateISO(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+// "YYYY-MM-DD" -> Date en horario local (evita corrimiento por UTC)
+function parseISODateToLocalDate(iso) {
+  const parts = String(iso).split("-");
+  if (parts.length !== 3) return new Date(NaN);
+  const y = Number(parts[0]);
+  const m = Number(parts[1]);
+  const d = Number(parts[2]);
+  return new Date(y, m - 1, d);
+}
+
+// feriados
+const feriados = [
+"2026-01-01",
+"2026-03-24",
+"2026-04-02",
+"2026-05-01",
+"2026-05-25",
+"2026-06-20",
+"2026-07-09",
+"2026-08-17",
+"2026-10-12",
+"2026-11-20",
+"2026-12-08",
+"2026-12-25"
+];
+
+const URL_SCRIPT="https://script.google.com/macros/s/AKfycbzuNqjTKeMwG53sc7IU-CZaaxbLvYJr-VhHBgypELsndqXN_sGJJxjkvfFiVMfjDL6d/exec";
+
+const fechaInput = document.getElementById("fecha");
+
+if(fechaInput){
+
+const hoy = formatDateISO(new Date());
+fechaInput.min = hoy;
+
+fechaInput.addEventListener("change", function(){
+
+let fechaSeleccionada = this.value;
+let fecha = parseISODateToLocalDate(fechaSeleccionada);
+let dia = fecha.getDay();
+
+if(dia === 0 || dia === 6){
+alert("Las entrevistas se realizan solo de lunes a viernes");
+this.value = "";
+return;
+}
+
+if(feriados.includes(fechaSeleccionada)){
+alert("Ese día es feriado");
+this.value = "";
+return;
+}
+
+cargarHorariosOcupados(fechaSeleccionada);
+
+});
+
+}
+
+
+// RESERVAR ENTREVISTA
+function reservar(){
+
+var fecha=document.getElementById("fecha").value;
+var horaSelect=document.getElementById("hora");
+var hora=horaSelect.value;
+var nombre=document.getElementById("nombre").value;
+var telefono=document.getElementById("telefono").value;
+var email=document.getElementById("email").value;
+
+if(!fecha||!hora||!nombre||!telefono||!email){
+
+document.getElementById("mensaje").innerHTML="⚠ Complete todos los campos";
+return;
+
+}
+
+document.getElementById("mensaje").innerHTML="Reservando...";
+
+var opcionSeleccionada = horaSelect.selectedOptions && horaSelect.selectedOptions[0] ? horaSelect.selectedOptions[0] : null;
+if(opcionSeleccionada && opcionSeleccionada.disabled){
+  document.getElementById("mensaje").innerHTML="Ese horario ya no esta disponible";
+  return;
+}
+
+var btnReservar = document.getElementById("btnReservar");
+if(btnReservar) btnReservar.disabled = true;
+
+var datos=new FormData();
+
+datos.append("fecha",fecha);
+datos.append("hora",hora);
+datos.append("nombre",nombre);
+datos.append("telefono",telefono);
+datos.append("email",email);
+
+
+
+fetch(URL_SCRIPT,{
+
+method:"POST",
+body:datos
+
+})
+
+.then(res=>res.text())
+
+.then(res=>{
+
+if(res==="ok"){
+
+document.getElementById("mensaje").innerHTML="✔ Entrevista reservada correctamente";
+
+}
+
+else if(res==="ocupado"){
+
+document.getElementById("mensaje").innerHTML="⚠ Ese horario ya está reservado";
+
+}
+
+else{
+
+document.getElementById("mensaje").innerHTML="Error al reservar";
+
+}
+
+})
+
+.catch(error=>{
+
+console.error(error);
+document.getElementById("mensaje").innerHTML="Error al reservar";
+
+})
+
+.finally(()=>{
+  if(btnReservar) btnReservar.disabled = false;
+});
+
+}
+
+function cargarHorariosOcupados(fecha){
+
+var select = document.getElementById("hora");
+var opciones = select.options;
+select.disabled = true;
+if(opciones && opciones.length > 0){
+  opciones[0].textContent = "Cargando horarios...";
+}
+
+fetch(URL_SCRIPT + "?fecha=" + encodeURIComponent(fecha))
+
+.then(res => res.json())
+
+.then(horasOcupadas => {
+
+if(!Array.isArray(horasOcupadas)) horasOcupadas = [];
+horasOcupadas = horasOcupadas.map(h => String(h).trim());
+var ocupadas = new Set(horasOcupadas);
+
+for(let i = 0; i < opciones.length; i++){
+
+if(opciones[i].value === "") continue;
+
+opciones[i].disabled = false;
+
+if(ocupadas.has(opciones[i].value)){
+opciones[i].disabled = true;
+}
+
+}
+
+if(select.value && ocupadas.has(select.value)){
+  select.value = "";
+  document.getElementById("mensaje").innerHTML="El horario que habias elegido ya esta ocupado";
+}
+
+})
+
+.catch(error=>{
+  console.error(error);
+  document.getElementById("mensaje").innerHTML="No se pudieron cargar los horarios ocupados";
+})
+
+.finally(()=>{
+  if(opciones && opciones.length > 0){
+    opciones[0].textContent = "Seleccionar horario";
+  }
+  select.disabled = false;
+});
+
+}
+
+</script>
 
 </body>
 </html>
