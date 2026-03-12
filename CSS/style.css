@@ -657,3 +657,7 @@ p {
 .lista-enfoque li {
   margin-bottom: 8px;
 }
+
+select option:disabled{
+color:#aaa;
+}
