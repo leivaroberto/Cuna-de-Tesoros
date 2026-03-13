@@ -593,6 +593,20 @@ p {
    MARCOS FLOTANTES - ENFOQUE
 =================================*/
 
+.icono-propuesta {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  line-height: 1;
+  border-radius: 18px;
+  background: rgba(201, 123, 99, 0.14);
+  box-shadow: 0 10px 22px rgba(47, 93, 86, 0.08);
+}
+
 .marco-flotante {
   background: #ffffff;
   border-radius: 24px;
